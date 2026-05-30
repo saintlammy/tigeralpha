@@ -293,9 +293,9 @@
 /* hero tiger visual */
 .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
 .tiger-stage { position: relative; width: min(440px, 86%); aspect-ratio: 1; }
-/* white circular ring faded out per request; orange dashed ring (r2) kept subtle */
+/* both hero rings faded out per request; the video keeps only its orange frame + halo glow */
 .tiger-stage .ring { position: absolute; inset: 0; border-radius: 50%; border: 1px solid transparent; }
-.tiger-stage .ring.r2 { inset: -26px; border-style: dashed; border-color: rgba(245, 138, 60, 0.12); animation: spin 38s linear infinite; }
+.tiger-stage .ring.r2 { inset: -26px; border-style: dashed; border-color: transparent; animation: spin 38s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .tiger-stage .halo {
   position: absolute; inset: 8%; border-radius: 50%;

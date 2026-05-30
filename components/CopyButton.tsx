@@ -1,38 +1,46 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { copyToClipboard } from "@/lib/clipboard";
 import { CopyIcon } from "./icons";
 
-/** Copies `value` to the clipboard; swaps the label to "Copied" (green) for 1.4s. */
+type Status = "idle" | "copied" | "error";
+
+/** Copies `value` to the clipboard; the label reflects the *actual* result. */
 export function CopyButton({ value }: { value: string }) {
-  const [copied, setCopied] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  useEffect(() => () => {
-    if (timer.current) clearTimeout(timer.current);
-  }, []);
+  useEffect(
+    () => () => {
+      if (timer.current) clearTimeout(timer.current);
+    },
+    [],
+  );
 
-  async function copy() {
-    try {
-      await navigator.clipboard.writeText(value);
-    } catch {
-      /* clipboard may be unavailable (insecure context) — fail silently */
-    }
-    setCopied(true);
+  async function handleCopy() {
+    const ok = await copyToClipboard(value);
+    setStatus(ok ? "copied" : "error");
     if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => setCopied(false), 1400);
+    timer.current = setTimeout(() => setStatus("idle"), 1600);
   }
+
+  const label = status === "copied" ? "Copied" : status === "error" ? "Copy failed" : "Copy";
+  const color =
+    status === "copied" ? "var(--success-2)" : status === "error" ? "#ff6b6b" : undefined;
 
   return (
     <button
       type="button"
       className="copy-btn"
-      onClick={copy}
-      style={copied ? { color: "var(--success-2)" } : undefined}
+      onClick={handleCopy}
+      style={color ? { color } : undefined}
       aria-label="Copy contract address"
     >
       <CopyIcon />
-      <span className="lbl-txt">{copied ? "Copied" : "Copy"}</span>
+      <span className="lbl-txt" aria-live="polite">
+        {label}
+      </span>
     </button>
   );
 }
