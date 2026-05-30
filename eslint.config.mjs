@@ -13,6 +13,11 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  {
+    // OG/Twitter image routes use Satori's <img> (not a real DOM element).
+    files: ["app/opengraph-image.tsx", "app/twitter-image.tsx"],
+    rules: { "@next/next/no-img-element": "off" },
+  },
 ]);
 
 export default eslintConfig;

@@ -127,7 +127,6 @@ export default function OpengraphImage() {
 
         {/* right: logo */}
         <div style={{ display: "flex", flexGrow: 1, alignItems: "center", justifyContent: "center", height: "100%" }}>
-          { }
           <img src={logoSrc} width={400} height={400} alt="" />
         </div>
       </div>
