@@ -20,9 +20,14 @@ const title = "TigerAlpha · $TIGAL — Community-Powered Impact on BNB Chain";
 const description =
   "TigerAlpha (TIGAL) is a purpose-driven meme token on BNB Smart Chain pairing community culture with real-world charitable impact.";
 
+// On Vercel this resolves to the production domain automatically; falls back to
+// localhost in dev. Set a custom domain in your Vercel project to override.
+const baseUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "http://localhost:3000";
+
 export const metadata: Metadata = {
-  // TODO(launch): set the real production domain.
-  metadataBase: new URL("https://tigeralpha.example"),
+  metadataBase: new URL(baseUrl),
   title,
   description,
   icons: { icon: "/assets/tiger.png", apple: "/assets/tiger.png" },

@@ -94,9 +94,10 @@ export function Footer() {
 
         <p className="disclaimer">
           Disclaimer: $TIGAL is a community meme token. Nothing on this page is financial advice.
-          Cryptocurrency involves significant risk and you may lose your entire investment. Metrics
-          and impact figures shown are illustrative placeholders pending live on-chain data. Always
-          do your own research and verify the official contract address before transacting.
+          Cryptocurrency involves significant risk and you may lose your entire investment. On-chain
+          metrics (supply, holders, burn) are sourced from BscScan and can change; the charity
+          program is a forward-looking commitment — no campaigns have run yet. Always do your own
+          research and verify the official contract address before transacting.
         </p>
       </div>
     </footer>

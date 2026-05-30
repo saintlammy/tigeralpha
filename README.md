@@ -67,13 +67,14 @@ orbit dots, count-ups, and the hero video are disabled/simplified).
 
 ## Wire before launch (centralized in `lib/site.ts` / `lib/content.ts`)
 
-- **Buy / DEX link** — `site.links.buy` (currently `#`).
 - **Discord invite** — `site.links.discord` (currently `#`).
-- **Production domain** — `metadataBase` in `app/layout.tsx`.
-- **Tokenomics** — now live BscScan values (`tokenStats`); the note hardcodes a `May 30 2026`
-  snapshot — refresh `tokenStats` + the Tokenomics note when the on-chain numbers move.
-- The footer disclaimer still calls metrics "illustrative placeholders" (kept verbatim from the
-  design); revisit once you're comfortable presenting the BscScan figures as live.
+- **Tokenomics** — live BscScan values (`tokenStats`); the Tokenomics note hardcodes a
+  `May 30 2026` snapshot — refresh `tokenStats` + the note when the on-chain numbers move.
+- **Custom domain (optional)** — `metadataBase` auto-resolves to the Vercel production URL;
+  set a custom domain in your Vercel project to override.
+
+Already done: Buy/DEX buttons point to PancakeSwap, and the footer disclaimer reflects live
+on-chain metrics + the forward-looking charity program.
 
 ## Recommended next optimizations
 
