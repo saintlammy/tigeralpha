@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { site } from "@/lib/site";
 import { CopyButton } from "./CopyButton";
 import { DiscordIcon, TelegramIcon, XIcon } from "./icons";
@@ -40,8 +41,7 @@ export function Footer() {
         <div className="foot-grid">
           <div className="foot-brand">
             <a className="brand" href="#top">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/tiger.png" alt="TigerAlpha logo" style={{ width: 38, height: 38 }} />
+              <Image src="/assets/tiger.png" alt="TigerAlpha logo" width={38} height={38} />
               <span className="name">
                 Tiger<span>Alpha</span>
               </span>

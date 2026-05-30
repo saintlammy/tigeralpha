@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { site } from "@/lib/site";
 import { ButtonLink } from "./ButtonLink";
 import { Reveal } from "./Reveal";
@@ -9,8 +10,7 @@ export function CtaBand() {
       <div className="wrap">
         <Reveal className="cta-card">
           {/* decorative watermark */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="cta-watermark" src="/assets/tiger.png" alt="" />
+          <Image className="cta-watermark" src="/assets/tiger.png" alt="" width={320} height={320} />
           <div className="eyebrow" style={{ justifyContent: "center" }}>
             Join the movement
           </div>

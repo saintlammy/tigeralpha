@@ -150,8 +150,7 @@ export function Hero() {
                   preload="auto"
                   disablePictureInPicture
                 />
-                {/* reduced-motion fallback (shown via CSS) */}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {/* reduced-motion fallback (shown via CSS, percentage-sized — plain <img>) */}
                 <img className="vid-fallback" src="/assets/tiger.png" alt="TigerAlpha geometric tiger emblem" />
                 <div className="vid-vignette" />
                 <div className="vid-rim" />

@@ -14,8 +14,9 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
   ]),
   {
-    // OG/Twitter image routes use Satori's <img> (not a real DOM element).
-    files: ["app/opengraph-image.tsx", "app/twitter-image.tsx"],
+    // OG/Twitter routes use Satori's <img>; Hero's reduced-motion fallback is a
+    // percentage-sized plain <img> on purpose (next/image fill doesn't fit it).
+    files: ["app/opengraph-image.tsx", "app/twitter-image.tsx", "components/Hero.tsx"],
     rules: { "@next/next/no-img-element": "off" },
   },
 ]);

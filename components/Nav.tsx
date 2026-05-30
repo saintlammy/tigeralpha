@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { cx } from "@/lib/cx";
 import { site } from "@/lib/site";
@@ -31,8 +32,7 @@ export function Nav() {
       <nav className={cx("nav", scrolled && "scrolled")}>
         <div className="nav-inner">
           <a className="brand" href="#top">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/tiger.png" alt="TigerAlpha logo" />
+            <Image src="/assets/tiger.png" alt="TigerAlpha logo" width={38} height={38} priority />
             <span className="name">
               Tiger<span>Alpha</span>
             </span>
