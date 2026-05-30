@@ -41,13 +41,13 @@ export const metadata: Metadata = {
     description,
     type: "website",
     siteName: "TigerAlpha",
-    images: [{ url: "/assets/tiger.png", width: 512, height: 512, alt: "TigerAlpha" }],
+    // image provided by app/opengraph-image.tsx
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/assets/tiger.png"],
+    // image provided by app/twitter-image.tsx
   },
 };
 
