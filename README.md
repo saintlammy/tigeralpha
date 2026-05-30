@@ -22,7 +22,7 @@ npm run lint     # eslint (flat config)
 | Styling | Tailwind v4 (CSS-first `@theme`) + bespoke component CSS in `app/globals.css` |
 | Fonts | `next/font/google` — self-hosted Space Grotesk + Manrope (no layout shift) |
 | Animation | Dependency-free: IntersectionObserver + rAF, ported from the original `motion.js` |
-| Hosting | Vercel-ready (also static-exportable) |
+| Hosting | Netlify (via `netlify.toml` + the official Next.js runtime) |
 
 The design tokens live in `:root` and are mirrored into Tailwind's `@theme`, so utilities
 like `bg-ink`, `text-orange-bright`, and `font-display` are available alongside the bespoke
@@ -70,8 +70,8 @@ orbit dots, count-ups, and the hero video are disabled/simplified).
 - **Discord invite** — `site.links.discord` (currently `#`).
 - **Tokenomics** — live BscScan values (`tokenStats`); the Tokenomics note hardcodes a
   `May 30 2026` snapshot — refresh `tokenStats` + the note when the on-chain numbers move.
-- **Custom domain (optional)** — `metadataBase` auto-resolves to the Vercel production URL;
-  set a custom domain in your Vercel project to override.
+- **Custom domain (optional)** — `metadataBase` auto-resolves to the Netlify site URL (`URL`);
+  set a custom domain in Netlify to override.
 
 Already done: Buy/DEX buttons point to PancakeSwap, and the footer disclaimer reflects live
 on-chain metrics + the forward-looking charity program.

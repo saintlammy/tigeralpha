@@ -1,0 +1,12 @@
+[build]
+  command = "next build"
+  publish = ".next"
+
+[build.environment]
+  # Match .nvmrc / Next.js 16 minimum (Node 20.9+)
+  NODE_VERSION = "22"
+
+# Netlify's official Next.js runtime (handles SSR, image optimization, etc.).
+# Netlify auto-installs this for Next.js sites; pinning it here is explicit.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

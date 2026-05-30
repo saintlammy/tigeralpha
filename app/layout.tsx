@@ -20,11 +20,16 @@ const title = "TigerAlpha · $TIGAL — Community-Powered Impact on BNB Chain";
 const description =
   "TigerAlpha (TIGAL) is a purpose-driven meme token on BNB Smart Chain pairing community culture with real-world charitable impact.";
 
-// On Vercel this resolves to the production domain automatically; falls back to
-// localhost in dev. Set a custom domain in your Vercel project to override.
-const baseUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
-  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : "http://localhost:3000";
+// Resolves to the deploy's production URL automatically (Netlify `URL`, or Vercel),
+// falling back to localhost in dev. Set a custom domain on your host to override.
+function resolveBaseUrl(): string {
+  if (process.env.URL) return process.env.URL; // Netlify production URL
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+  return "http://localhost:3000";
+}
+const baseUrl = resolveBaseUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
